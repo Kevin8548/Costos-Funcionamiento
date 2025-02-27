@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es" class="bg-black text-white">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+    <!-- <link rel="stylesheet" href="{% static 'theme/css/dist/styles.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'styles/output.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+    <style>
+    </style>
+</head>
+<body>
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            
+          </div>
+          <a>Aplicación</a>
+            <a>Acerca del Proyecto</a>
+            <a>Sobre Nosotros</a>
+            <a>Contacto</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a>Aplicación</a></li>
+            <li><a>Acerca del Proyecto</a></li>
+            <li><a>Sobre Nosotros</a></li>
+            <li class="btn btn-accent btn-outline"><a>Contacto</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+            <button class="btn">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                Inicio
+            </button>
+        </div>
+      </div> 
+
+      {% block content %}
+      {% endblock %}
+
+      <!-- body -->
+       <!-- recuadro -->
+       <div class="p-4 rounded-3xl shadow-lg w-3/8  flex items-center justify-center animate__animated" id="planos"  style="background-color: rgba(30, 174, 227, 0.093);">
+        <h3 class="text-8xl font-semibold text-white">Como funciona <br> LightStep</h3>
+        <img src="../static/image/LS.png" alt="" class="w-[250px] h-[150px] rounded-3xl justify-right">
+
+        <script>
+          
+          const h1Element = document.getElementById("planos");
+        
+          
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animate__backInLeft");
+                observer.unobserve(entry.target);
+              }
+            });
+          }, {
+            threshold: 0.5
+          });
+        
+          observer.observe(h1Element);
+        </script>
+      </div>
+      
+      <!-- pasos -->
+       <br>
+      <div class="grid grid-cols-3 gap-8 text-center text-white max-w-5xl mx-auto">
+
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg ">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <br>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+       <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+        <div class="m-2 p-[0.5px] bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg">
+        <div class=" p-4 rounded-lg  mx-auto animado bg-black">
+          <div class="w-20 h-20 rounded-full overflow-hidden mx-auto">
+              <img src="../static/image/LS.png" alt="Imagen 1" class="w-full h-full object-cover">
+          </div>
+          <p class="mt-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>
+      </div>
+       </div>
+    </div>
+    
+      
+      <script>
+        
+        const elementos = document.querySelectorAll(".animado");
+      
+        
+        elementos.forEach((elemento) => {
+          elemento.addEventListener("mouseenter", () => {
+           
+            elemento.classList.add("animate__animated", "animate__heartBeat");
+          });
+      
+          elemento.addEventListener("mouseleave", () => {
+            
+            elemento.classList.remove("animate__animated", "animate__heartBeat");
+          });
+        });
+      </script>
+      
+        <aside>
+
+        </aside>
+      </footer>
+      
+        
+        </aside>
+        <nav>
+          <div class="grid grid-flow-col gap-4">
+            <a>
+            </a>
+            <a>
+            </a>
+          </div>
+        </nav>
+      </footer>
+</body>
+</html>
