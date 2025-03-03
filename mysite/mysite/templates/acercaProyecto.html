@@ -1,7 +1,159 @@
 {% extends "base.html" %}
 
 {% block title %} Acerca del Proyecto {% endblock %}
+{% block extra_css %}
+<style>
+    .gradient-border {
+        position: relative;
+        display: inline-block;
+        padding: 12px 32px;
+        border-radius: 9999px;
+        font-weight: bold;
+        font-size: 1.875rem; /* text-3xl */
+        background-color: black;
+    }
+
+    .gradient-border::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #ff0080, #8000ff);
+        z-index: -1;
+    }
+    .neon-button {
+        position: relative;
+        padding: 2.5rem;
+        width: 15rem;
+        height: 12rem;
+        text-align: center;
+        border-radius: 1rem;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /*Sombras y efecto de luz en hover*/
+    .neon-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgb(255, 255, 255);
+    }
+
+    /*Efecto de brillo*/
+    .neon-button::before {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 70%);
+        top: -50%;
+        left: -50%;
+        opacity: 0;
+        transition: opacity 0.4s;
+    }
+    .neon-button:hover::before {
+        opacity: 1;
+    }
+
+    /*Efecto de escaneo*/
+    .neon-button::after {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+        top: 0;
+        left: -150%;
+        transform: rotate(30deg);
+        animation: scan-effect 3s linear infinite;
+    }
+
+    @keyframes scan-effect {
+        0% { left: -150%; }
+        100% { left: 150%; }
+    }
+
+    .bg-cyan { background: linear-gradient(45deg, #06b6d4, #2563eb); }
+    .bg-purple { background: linear-gradient(45deg, #a855f7, #ec4899); }
+    .bg-yellow { background: linear-gradient(45deg, #facc15, #ea580c); }
+</style>
+{% endblock %}
 
 {% block content %}
-<p>Resultado exitoso 1</p>
+<h1 class="text-6xl font-bold text-center mt-10 tracking-widest">LightStep</span></h1>
+    <div class="flex justify-center space-x-20 mt-12">
+        <a href="{% url 'proyecto' %}" class="neon-button bg-cyan">
+            <p class="text-white text-2xl font-semibold animate-bounce">¿Qué es este proyecto?</p>
+        </a>
+
+        <div class="neon-button bg-purple">
+            <a href="{% url 'funcionamiento' %}">
+                <p class="text-white text-2xl font-semibold animate-bounce">¿Cómo funciona?</p>
+            </a>
+        </div>
+
+        <div class="neon-button bg-yellow">
+            <a href="{% url 'costos' %}">
+                <p class="text-white text-2xl font-semibold animate-bounce">Costos</p>
+            </a>
+        </div>
+    </div>
+    <br>
+<section class="mt-20 px-8 sm:px-16 lg:px-32">
+    <h2 class="text-2xl font-bold inline-block px-8 py-3 shadow-lg bg-black gradient-border">
+        ¿Por qué es importante?
+    </h2>
+    <div class="mt-6 max-w-3xl ml-auto mr-0">
+        <p class="text-gray-300 text-lg leading-relaxed text-left">
+            En un mundo donde la automatización y la eficiencia energética son clave, nuestro sistema de iluminación inteligente para escaleras ofrece:
+        </p>
+        <ul class="mt-4 text-gray-300 text-lg leading-relaxed list-disc pl-5">
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-purple-500 rounded-full inline-block mr-2"></span>Seguridad: Reduce el riesgo de accidentes al iluminar automáticamente los escalones cuando detecta movimiento.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-blue-500 rounded-full inline-block mr-2"></span>Eficiencia energética: Las luces solo se encienden cuando es necesario.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-orange-500 rounded-full inline-block mr-2"></span>Innovación y confort: Transforma cualquier espacio en un entorno inteligente y moderno.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="mt-20 px-8 sm:px-16 lg:px-32">
+    <h2 class="text-2xl font-bold inline-block px-8 py-3 shadow-lg bg-black gradient-border ml-auto mr-10">
+        Tecnologías utilizadas
+    </h2>
+    <div class="mt-6 max-w-3xl ml-auto mr-0">
+        <p class="text-gray-300 text-lg leading-relaxed text-left">
+            Para desarrollar un sistema eficiente y escalable, utilizamos herramientas modernas en hardware y software:
+        </p>
+        <ul class="mt-4 text-gray-300 text-lg leading-relaxed list-disc pl-5">
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-purple-500 rounded-full inline-block mr-2"></span>Backend: Django para gestionar la lógica del sistema y la comunicación con la base de datos.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-blue-500 rounded-full inline-block mr-2"></span>Frontend: Tailwind CSS y Django Templates para una interfaz web intuitiva y moderna.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-orange-500 rounded-full inline-block mr-2"></span>Base de datos: Firebase para almacenar datos de configuración y uso del sistema.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-pink-500 rounded-full inline-block mr-2"></span>Microcontrolador: ESP32 para la gestión de sensores y luces LED.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-pink-500 rounded-full inline-block mr-2"></span>Aplicación móvil: Flutter para permitir el control remoto del sistema.</li>
+        </ul>
+    </div>
+</section>
+<section class="mt-20 px-8 sm:px-16 lg:px-32">
+    <h2 class="text-2xl font-bold inline-block px-8 py-3 shadow-lg bg-black gradient-border">
+        Nuestro enfoque
+    </h2>
+    <div class="mt-6 max-w-3xl ml-auto mr-0">
+        <p class="text-gray-300 text-lg leading-relaxed text-left">
+            Nos diferenciamos por nuestra visión de crear un producto que no solo sea funcional, sino también adaptable y personalizable a las necesidades de cada usuario:
+        </p>
+        <ul class="mt-4 text-gray-300 text-lg leading-relaxed list-disc pl-5">
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-purple-500 rounded-full inline-block mr-2"></span>Interfaz intuitiva y configuración sencilla a través de la app.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-blue-500 rounded-full inline-block mr-2"></span>Algoritmos inteligentes que optimizan el encendido y apagado.</li>
+            <p class="text-gray-300 flex items-center"><span class="w-4 h-4 bg-orange-500 rounded-full inline-block mr-2"></span>Ajuste de intensidad, colores y patrones de iluminación</li>
+        </ul>
+    </div>
+</section>
+<br><br><br><br><br>
+
 {% endblock %}

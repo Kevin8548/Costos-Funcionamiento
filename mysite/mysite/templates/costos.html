@@ -1,168 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %} Costos {% endblock %}
+
+{% block extra_css %}
+<style>
+  html body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .btn {
+    background-color: #000;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="es" class="bg-black text-white">
-<head>
+  <head>
     <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %}</title>
     {% load static %}
-    <!-- <link rel="stylesheet" href="{% static 'theme/css/dist/styles.css' %}"> -->
-    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/style.css' %}"> -->
     <link rel="stylesheet" href="{% static 'styles/output.css' %}">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </head>
+  <body>
 
-    <style>
-    </style>
-</head>
-<body>
-    <div class="navbar bg-base-100">
-        <div class="navbar-start">
-          <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            
-          </div>
-          <a>Aplicación</a>
-            <a>Acerca del Proyecto</a>
-            <a>Sobre Nosotros</a>
-            <a>Contacto</a>
-        </div>
-        <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li><a>Aplicación</a></li>
-            <li><a>Acerca del Proyecto</a></li>
-            <li><a>Sobre Nosotros</a></li>
-            <li class="btn btn-accent btn-outline"><a>Contacto</a></li>
-          </ul>
-        </div>
-        <div class="navbar-end">
-            <button class="btn">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                Inicio
-            </button>
-        </div>
-      </div> 
-
-      {% block content %}
-      {% endblock %}
-
-      <!-- body -->
-       <!-- imagen -->
-       <div class="relative w-full h-96 bg-gray-300 rounded-lg">
-        <img src="../static/image/LS.png" alt="Imagen de fondo" class="absolute inset-0 w-full h-full object-cover">
-        <div class="relative z-10 text-center text-white p-10">
-          <h1 class="absolute bottom--10 left--1 mb-4 mr-4 text-8xl font-bold text-white z-10 " id="animado">Costos</h1>
-
-          <script>
-            const elemento = document.getElementById("animado");
-          
-            elemento.addEventListener("mouseenter", () => {
-              elemento.classList.add("animate__animated", "animate__bounceIn");
-            });
-          
-            elemento.addEventListener("mouseleave", () => {
-              elemento.classList.remove("animate__animated", "animate__bounceIn");
-            });
-          </script>
-        </div>
-      </div>
-
-      <div class="text-center mt-10">
-  <h1 class="text-6xl font-bold text-white animate__animated" id="planos">Planes</h1>
-  <script>
-    const h1Element = document.getElementById("planos");
-  
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate__backInLeft");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-  
+    <!-- Imagen -->
+    <div class="relative w-full h-96 bg-gray-300 rounded-lg">
+      <img src="{% static 'img/LS.png'%}" alt="Imagen de fondo" class="absolute inset-0 w-full h-full object-cover">
+      <div class="relative z-10 text-center text-white p-10">
+        <!-- Titulo "Costos" ajustado para que esté mucho más abajo -->
+        <h1 class="absolute bottom--12 left-10 mb-4 text-8xl font-bold text-white z-10" id="animado">Costos</h1>
     
-    observer.observe(h1Element);
-  </script>
-</div>
-      
-      <footer class="footer footer-center bg-black-200 text-primary-content p-10 text-white mt-8">
-        <aside>
+        <script>
+          const elemento = document.getElementById("animado");
+          elemento.addEventListener("mouseenter", () => {
+            elemento.classList.add("animate__animated", "animate__bounceIn");
+          });
+          elemento.addEventListener("mouseleave", () => {
+            elemento.classList.remove("animate__animated", "animate__bounceIn");
+          });
+        </script>
+      </div>
+    </div>
+    
 
-          <div class="flex justify-center space-x-4">
-  <div class="p-4 border-2 border-gray-300 rounded-lg bg-violet-300 shadow-lg w-1/4 animado">
-    <h3 class="text-xl font-semibold text-white">Primer Plan</h3>
-    <p class="mt-2 text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id esse sed fugiat minus recusandae! Expedita, mollitia. Magnam repellat sapiente quia iusto. Deleniti rerum eveniet modi? Provident asperiores nihil sunt consequatur?</p>
-  </div>
-  <div class="p-4 border-2 border-gray-300 rounded-lg bg-pink-300 shadow-lg w-1/4 animado">
-    <h3 class="text-xl font-semibold text-white">Segundo Plan</h3>
-    <p class="mt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quos sit sapiente laboriosam vel deleniti iusto consequuntur neque id? Eaque, ipsam? Nobis cumque adipisci necessitatibus accusamus asperiores eligendi quos beatae.</p>
-  </div>
-</div>
-<div class="p-4 border-2 border-gray-300 rounded-lg bg-yellow-300 shadow-lg w-1/4 animado">
-  <h3 class="text-xl font-semibold text-white">Tercer Plan</h3>
-  <p class="mt-2 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam rem ducimus obcaecati asperiores veritatis! Ullam quos ab doloribus. Quidem iusto nisi ratione inventore incidunt veniam hic obcaecati maxime animi praesentium.</p>
-</div>
+    <!-- Titulo "Planes" -->
+    <div class="text-center mt-10">
+      <h1 class="text-6xl font-bold text-white animate__animated" id="planos">Planes</h1>
 
-<script>
-  
-  const elementos = document.querySelectorAll(".animado");
+      <script>
+        const h1Element = document.getElementById("planos");
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate__backInLeft");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.5
+        });
 
-  
-  elementos.forEach((elemento) => {
-    elemento.addEventListener("mouseenter", () => {
-      elemento.classList.add("animate__animated", "animate__bounce");
-    });
+        observer.observe(h1Element);
+      </script>
+    </div>
 
-    elemento.addEventListener("mouseleave", () => {
-      elemento.classList.remove("animate__animated", "animate__bounce");
-    });
-  });
-</script>
-
-        </aside>
-      </footer>
-      
-        
-        </aside>
-        <nav>
-          <div class="grid grid-flow-col gap-4">
-            <a>
-            </a>
-            <a>
-            </a>
+    <!-- Footer con los planes -->
+    <footer class="footer footer-center bg-black-200 text-primary-content p-10 text-white mt-8">
+      <aside>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Plan Básico -->
+          <div class="p-4 border-2 border-gray-300 rounded-lg bg-gradient-to-r from-yellow-500 to-blue-500 shadow-lg w-full sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/4 animado">
+            <h3 class="text-xl font-semibold text-white">Plan Básico (Esencial)</h3>
+            <p class="mt-2 text-white text-justify">
+              <ol class="list-inside list-disc text-white text-justify">
+                <li>Control básico de encendido y apagado por detección de movimiento.</li>
+                <li>Ajustes de intensidad de iluminación (baja, media, alta).</li>
+                <li>Opción de elegir entre 3 colores predefinidos (blanco cálido, blanco frío y neutro).</li>
+                <li>Acceso a la aplicación móvil para la configuración inicial.</li>
+                <li>Ideal para: Usuarios que buscan una solución sencilla y económica para la automatización de su iluminación.</li>
+              </ol>
+            </p>
           </div>
-        </nav>
-      </footer>
-</body>
+
+          <!-- Plan Intermedio -->
+          <div class="p-4 border-2 border-gray-300 rounded-lg bg-gradient-to-r from-green-500 to-purple-500 shadow-lg w-full sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/4 animado">
+            <h3 class="text-xl font-semibold text-white">Plan Intermedio (Personalizado)</h3>
+            <p class="mt-2 text-white text-justify">
+              <ol class="list-inside list-disc text-white text-justify">
+                <li>Todo lo del Plan Básico.</li>
+                <li>Personalización de colores (hasta 16 millones de colores).</li>
+                <li>Creación de escenas y efectos predefinidos (como atardecer, fiesta, lectura, etc.).</li>
+                <li>Control remoto desde cualquier lugar a través de la app.</li>
+                <li>Integración con asistentes de voz (Google Assistant, Alexa, etc.).</li>
+                <li>Opciones de programación (hora de encendido y apagado).</li>
+                <li>Ideal para: Usuarios que desean más control sobre la iluminación, efectos y personalización.</li>
+              </ol>
+            </p>
+          </div>
+
+          <!-- Plan Premium -->
+          <div class="p-4 border-2 border-gray-300 rounded-lg bg-gradient-to-r from-orange-500 to-gray-500 shadow-lg w-full sm:w-1/3 md:w-1/4 lg:w-1/4 xl:w-1/4 animado">
+            <h3 class="text-xl font-semibold text-white">Plan premium (La mejor experiencia)</h3>
+            <p class="mt-2 text-white text-justify">
+              <ol class="list-inside list-disc text-white text-justify">
+                <li>Todo lo del Plan Intermedio.</li>
+                <li>Efectos avanzados (como iluminación dinámica sincronizada con música o películas).</li>
+                <li>Modos de iluminación automáticos según la hora del día.</li>
+                <li>Historial de consumo de energía y estadísticas de uso.</li>
+                <li>Control por geolocalización (encendido y apagado automático según la ubicación).</li>
+                <li>Acceso a actualizaciones de software premium y características futuras.</li>
+                <li>Soporte técnico prioritario.</li>
+                <li>Ideal para: Usuarios que buscan lo último en tecnología de iluminación, personalización completa y control total de su ambiente.</li>
+              </ol>
+            </p>
+          </div>
+        </div>
+      </aside>
+    </footer>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+    <script>
+      const elementos = document.querySelectorAll(".animado");
+      elementos.forEach((elemento) => {
+        elemento.addEventListener("mouseenter", () => {
+          elemento.classList.add("animate__animated", "animate__bounce");
+        });
+        elemento.addEventListener("mouseleave", () => {
+          elemento.classList.remove("animate__animated", "animate__bounce");
+        });
+      });
+    </script>
+
+  </body>
 </html>
+{% endblock %}

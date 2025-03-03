@@ -18,5 +18,8 @@ def costos(request):
 def funcionamiento(request):
     return render(request, "funcionamiento.html", {})
 
+def proyecto(request):
+    return render(request, "proyecto.html", {})
+
 def nosotros(request):
     return render(request, "sobreNosotros.html", {})
